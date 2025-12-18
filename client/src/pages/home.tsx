@@ -3,13 +3,14 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, ArrowRight, ShieldCheck, Clock, Headset, Star, Phone } from "lucide-react";
-import { categories, medicines, testimonials, assets } from "@/lib/mockData";
+import { categories, medicines, labTests, testimonials, assets } from "@/lib/mockData";
 import { useCart } from "@/lib/cart-context";
 import { Link } from "wouter";
 
 export default function Home() {
   const { addToCart } = useCart();
   const popularMedicines = medicines.slice(0, 5);
+  const recommendedTests = labTests.slice(0, 6);
 
   return (
     <div className="space-y-16 pb-16">
@@ -206,6 +207,44 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Recommended Lab Test Packages */}
+      <section className="container mx-auto px-4">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Recommended Test Packages</h2>
+          <Link href="/lab-tests">
+            <a className="text-primary font-medium hover:underline">View all</a>
+          </Link>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recommendedTests.map((test) => (
+            <Link key={test.id} href={`/lab-tests?test=${test.id}`}>
+              <Card className="group overflow-hidden border-slate-100 hover:border-primary/20 hover:shadow-lg transition-all cursor-pointer">
+                <div className="relative h-40 bg-slate-50 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={test.image} 
+                    alt={test.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                </div>
+                <CardContent className="p-4">
+                  <div className="text-xs text-primary font-medium mb-2 uppercase tracking-wide">{test.category}</div>
+                  <h3 className="font-semibold text-slate-900 mb-2">{test.name}</h3>
+                  <p className="text-xs text-slate-500 line-clamp-2 mb-4">{test.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-primary">₹{test.price}</span>
+                    <Button size="sm" variant="outline">
+                      Book Now
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>
