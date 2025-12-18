@@ -11,6 +11,7 @@ import Medicines from "@/pages/medicines";
 import LabTests from "@/pages/lab-tests";
 import Login from "@/pages/login";
 import Cart from "@/pages/cart";
+import Checkout from "@/pages/checkout";
 import Profile from "@/pages/profile";
 
 function Router() {
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/lab-tests" component={LabTests} />
         <Route path="/login" component={Login} />
         <Route path="/cart" component={Cart} />
+        <Route path="/checkout" component={Checkout} />
         <Route path="/profile" component={Profile} />
         <Route component={NotFound} />
       </Switch>

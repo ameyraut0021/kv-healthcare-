@@ -23,7 +23,7 @@ export default function Cart() {
       setTimeout(() => setLocation("/login"), 1500);
       return;
     }
-    setShowConfirmation(true);
+    setLocation("/checkout");
   };
 
   const confirmOrder = () => {
@@ -37,36 +37,6 @@ export default function Cart() {
     setTimeout(() => setLocation("/"), 2000);
   };
 
-  if (showConfirmation) {
-    return (
-      <div className="container mx-auto px-4 py-16 text-center space-y-6 min-h-[60vh] flex flex-col items-center justify-center">
-        <div className="h-24 w-24 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
-          <CheckCircle className="h-12 w-12 text-green-600" />
-        </div>
-        <h1 className="text-3xl font-bold text-slate-900">Order Confirmed!</h1>
-        <p className="text-slate-500 max-w-md">
-          Your order has been successfully placed. You'll receive delivery updates on your registered mobile number.
-        </p>
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4 max-w-md w-full">
-          <div className="text-sm space-y-2">
-            <div className="flex justify-between">
-              <span className="text-slate-600">Order Total:</span>
-              <span className="font-bold">₹{(total * 1.05).toFixed(2)}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-slate-600">Estimated Delivery:</span>
-              <span className="font-bold">24-48 hours</span>
-            </div>
-          </div>
-        </div>
-        <div className="flex gap-4 justify-center">
-          <Button onClick={confirmOrder} size="lg">
-            Continue Shopping
-          </Button>
-        </div>
-      </div>
-    );
-  }
 
   if (items.length === 0) {
     return (
