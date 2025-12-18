@@ -84,11 +84,30 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Button>
             </Link>
             
-            <Link href="/login">
-              <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary">
-                <User className="h-5 w-5" />
-              </Button>
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary">
+                  <User className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <Link href="/profile">
+                  <DropdownMenuItem className="cursor-pointer">My Profile</DropdownMenuItem>
+                </Link>
+                <Link href="/orders">
+                  <DropdownMenuItem className="cursor-pointer">My Orders</DropdownMenuItem>
+                </Link>
+                <Link href="/addresses">
+                  <DropdownMenuItem className="cursor-pointer">My Addresses</DropdownMenuItem>
+                </Link>
+                <Link href="/admin">
+                  <DropdownMenuItem className="cursor-pointer text-slate-500">Admin Dashboard</DropdownMenuItem>
+                </Link>
+                <Link href="/login">
+                  <DropdownMenuItem className="cursor-pointer text-red-500">Logout</DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             {/* Mobile Menu Toggle */}
             <Button 

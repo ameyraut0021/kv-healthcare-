@@ -13,6 +13,9 @@ import Login from "@/pages/login";
 import Cart from "@/pages/cart";
 import Checkout from "@/pages/checkout";
 import Profile from "@/pages/profile";
+import Addresses from "@/pages/addresses";
+import Orders from "@/pages/orders";
+import Admin from "@/pages/admin";
 
 function Router() {
   return (
@@ -25,6 +28,9 @@ function Router() {
         <Route path="/cart" component={Cart} />
         <Route path="/checkout" component={Checkout} />
         <Route path="/profile" component={Profile} />
+        <Route path="/addresses" component={Addresses} />
+        <Route path="/orders" component={Orders} />
+        <Route path="/admin" component={Admin} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
