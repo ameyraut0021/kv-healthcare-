@@ -1,0 +1,172 @@
+You are a senior full‑stack engineer and UX designer.
+
+I already have a React + TypeScript + Tailwind + Vite project for a KwikMedi-style medicine delivery website (frontend only). Now I want you to upgrade this project into a FULL user‑usable site with:
+
+1) Cart → Checkout → Order confirmation flow  
+2) Address management for users  
+3) A simple admin dashboard (front‑end simulation) to see and update orders  
+
+Do everything with front‑end code only (no real backend or database). Use localStorage to store data (addresses and orders) so that both “user side” and “admin side” can work on the same browser.
+
+Keep the existing look and feel (KwikMedi style):  
+- React + TypeScript + Tailwind + Vite  
+- Clean medical UI, teal/green primary color, rounded cards, responsive layout.
+
+================================
+FEATURE 1 – CHECKOUT + ADDRESS
+================================
+Current state: I already have a /cart page that shows items and an “Order Summary” with a “Proceed to Checkout” button.
+
+I want you to:
+
+1. Create a new route/page: `/checkout`.
+2. When user clicks “Proceed to Checkout” on /cart, navigate to `/checkout`.
+
+On `/checkout`:
+
+LEFT SIDE – Cart + Summary
+- Reuse the cart items and order summary:
+  - Show each item (image, name, qty, price).
+  - Show subtotal, delivery fee (e.g., “Free”), tax, and final total.
+
+RIGHT SIDE – Delivery Address form
+- Title: “Delivery Address”.
+- Form fields (all required except landmark):
+  - Full Name
+  - Phone Number
+  - Address Line
+  - City
+  - Pincode
+  - State
+  - Landmark (optional)
+- Below the form show a checkbox: “Save this address for future orders”.
+
+Place Order:
+- Button text: “Place Order”.
+- On click:
+  - Validate fields (highlight errors under each field).
+  - If valid:
+    - Build an address object.
+    - If “Save this address” is checked, save/merge it into a localStorage list of addresses.
+    - Build an order object with:
+      - id (random string or timestamp)
+      - customerName, phone
+      - fullAddress (string or structured object)
+      - items (from cart)
+      - total (from summary)
+      - status: "PENDING"
+      - createdAt: current date/time string
+    - Append this order into a localStorage array named `"orders"`.
+    - Clear the cart.
+    - Show an order confirmation screen:  
+      - “Order placed successfully!”  
+      - Show order ID, total, and address summary.  
+      - Buttons: “Track my orders” (go to `/orders`) and “Back to Home”.
+
+Address Prefill:
+- On `/checkout` mount, try to read a “default address” from localStorage and prefill the form if available.
+
+================================
+FEATURE 2 – ADDRESS MANAGEMENT
+================================
+Create a new route/page: `/addresses`.
+
+Header integration:
+- In the top navigation (where the profile icon is), add a link/menu item “My Addresses” that routes to `/addresses`.
+
+On `/addresses`:
+
+- Read the saved addresses array from localStorage (e.g., key `"addresses"`).
+- Display each address in a card:
+  - Name, phone
+  - Address line, city, pincode, state
+  - Landmark if present
+- Each card should have:
+  - “Set as default” button
+  - “Delete” button
+- One address can be marked as default (`isDefault: true`).
+- When “Set as default” is clicked:
+  - Update localStorage so only that address has `isDefault = true`.
+- At the top of the page:
+  - If a default address exists, show a small highlight:  
+    “Default Address: [short summary]”.
+- Below the list, reuse the same address form used on `/checkout` to add a new address:
+  - On submit, push to the addresses array in localStorage.
+- Make sure `/checkout` uses this default address to prefill fields whenever available.
+
+================================
+FEATURE 3 – MY ORDERS PAGE
+================================
+Create a route `/orders` for normal users to see their orders.
+
+- Read the `orders` array from localStorage.
+- Show the newest orders first.
+- For each order card show:
+  - Order ID (shortened)
+  - Date & time
+  - Total amount
+  - Status badge (PENDING / PROCESSING / OUT_FOR_DELIVERY / DELIVERED)
+  - Address summary (1–2 lines)
+  - List of items (name × qty)
+
+Add a link in the header (profile menu or somewhere obvious) to “My Orders” → `/orders`.
+
+================================
+FEATURE 4 – SIMPLE ADMIN DASHBOARD (FRONTEND ONLY)
+================================
+Create a new route `/admin`.
+
+Admin access:
+- At the top of `/admin`, show a small login form:
+  - Input: “Admin Key”
+  - Button: “Enter”
+- If the entered key equals `"admin123"`:
+  - Save something like `localStorage.setItem("adminLoggedIn", "true")`.
+  - Show the admin dashboard.
+- If `adminLoggedIn` is already true, skip the login form and show dashboard directly.
+
+Admin dashboard data:
+- Load the same `"orders"` array from localStorage (this is shared with the user side).
+- Display orders in a table or large list:
+
+Columns / Fields:
+- Order ID
+- Customer name
+- Phone
+- Address (one line)
+- Total amount
+- Status (editable dropdown)
+- Created date/time
+
+Status editing:
+- The status field should be a dropdown with options:
+  - PENDING
+  - PROCESSING
+  - OUT_FOR_DELIVERY
+  - DELIVERED
+- On change:
+  - Update the corresponding order’s status in localStorage.
+  - Also ensure `/orders` (user side) reflects the updated status.
+
+No real authentication or backend is required; this is just a demo/simulation admin.
+
+================================
+GENERAL IMPLEMENTATION NOTES
+================================
+- Use TypeScript types/interfaces for Address and Order.
+- Create a small localStorage helper module to read/write addresses and orders safely (handle empty case).
+- Keep all styling consistent with existing Tailwind design:  
+  rounded cards, spacing, headings, etc.
+- Ensure all new pages are mobile‑friendly:
+  - `/checkout`
+  - `/addresses`
+  - `/orders`
+  - `/admin`
+- Make sure navigation links (cart icon, profile menu, etc.) correctly route to new pages.
+
+Final goal:
+After your changes, this SINGLE project should behave like a mini full website:
+- User can add items to cart, go to checkout, fill address, place order.
+- Address is saved and can be managed in `/addresses`.
+- Orders are visible in `/orders`.
+- As the owner, I can go to `/admin`, enter admin key "admin123", and see/update the same orders (all via localStorage, no real backend).
