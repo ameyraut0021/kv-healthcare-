@@ -1,0 +1,245 @@
+You are a senior full‑stack engineer and UI designer. 
+Build a full responsive web app called “KwikMedi – Medicine Delivery Service” inspired by https://kwikmedi.com, but use all‑original code, wording, and images (do NOT copy their code or text).
+
+TECH STACK
+- Frontend: React + Vite (TypeScript)
+- Styling: CSS modules or a single global CSS file, no CSS frameworks
+- Backend: Node.js + Express
+- Database: MongoDB using Mongoose (read connection string from env var MONGODB_URI)
+- Project must run with: npm install, npm run dev
+
+OVERALL STYLE
+- Clean, modern healthcare look.
+- Primary colors: white background, teal/green accents, dark gray text.
+- Use Google font “Inter” or “Poppins”.
+- Mobile‑first responsive layout using flexbox / CSS grid.
+- Sticky header, smooth scrolling for on‑page anchors.
+- Layout and UX similar in spirit to KwikMedi screens: hero banner, medicines categories grid, lab tests grid, testimonials, login with phone, footer etc. (based on screenshots and structure).
+
+ROUTING & PAGES (FRONTEND)
+Use React Router and create these main routes:
+
+1) "/"  – Home (landing) page
+2) "/medicines" – All Medicines listing
+3) "/lab-tests" – Lab Tests & Health Checkups listing
+4) "/login" – Phone number login / OTP screen
+5) "/cart" – Simple cart preview (client‑side state only)
+6) "/profile" – Basic profile/dashboard after login (just a placeholder)
+
+------------------------------------------------
+1. HOME PAGE ("/")
+------------------------------------------------
+Header / Navbar:
+- Top bar with small text: “We are delivering medicines now! Order and get it delivered quickly.”
+- Main navbar similar to KwikMedi:
+  - Left: logo text "KM" with a simple icon mark.
+  - Beside it: “Delivery to: [select location placeholder]”.
+  - Center nav links: Home, Medicines (dropdown), Lab Tests (dropdown).
+  - Right icons: Cart icon with badge, User icon (profile/login).
+- Medicines dropdown: show few categories (Pain Relief, Antibiotics, Allergy, Vitamins, First Aid).
+- Lab Tests dropdown: categories like Diabetes Screening, Thyroid Profile, Liver Function Test, Full Body Checkup, Fever Panel.
+
+Hero section:
+- Big left banner similar to screenshot: 
+  - Heading: “Your Complete Healthcare Solution”
+  - Subheading: “Medicines and Lab Tests – all in one place.”
+  - Bullet icons row: Genuine Medicines, Fast Delivery, 24/7 Support.
+  - Primary button: “Browse Medicines” (link to /medicines)
+  - Secondary button: “Book Lab Test” (link to /lab-tests)
+- Right side: large hero image placeholder (use gradient background and simple illustration / shapes).
+
+“Medicines” + “Lab Tests” cards:
+- Two side‑by‑side call‑to‑action cards:
+  - Medicines card: short text + “Browse Medicines →”
+  - Lab Tests card: short text + “Book Test →”
+
+Medicine Categories section:
+- Title: “Medicine Categories”
+- Responsive grid of 8 cards like in the screenshot:
+  - Pain Relief
+  - Antibiotics
+  - Allergy
+  - Vitamins
+  - First Aid
+  - Orthopedics
+  - Baby & Child Care
+  - Diabetes
+- Each card: background image placeholder, category name, hover effect.
+
+Recommended Packages (for lab tests):
+- Title: “Recommended Packages”
+- Horizontal card: “Home Sample Collection” with bullet icons (Home Collection, Quick Results, NABL Accredited) and “Book Test” button.
+
+Popular Medicines section:
+- Title: “Popular Medicines”
+- Horizontal scroll or grid of product cards:
+  - Show discount badge (e.g., “10%”)
+  - Medicine name, short description, price, category tag.
+  - Add to Cart button (updates a simple global React state cart).
+
+Customer Testimonials section:
+- Title: “What Our Customers Say”
+- 3 testimonial cards with:
+  - Star rating
+  - Short review text
+  - Customer initials avatar and name + city.
+
+Support + Footer:
+- Support block: “Need Help?” + text “Our healthcare experts are available 24/7 to assist you.” + “Contact Support” button.
+- Footer with:
+  - Left: brief KwikMedi description.
+  - Center: Quick Links: Terms & Conditions, Privacy Policy.
+  - Right: Contact email (support@kwikmedi.com) and social icons (Facebook, LinkedIn, Instagram, X).
+  - Bottom: “© 2025 KwikMedi. All rights reserved by Vishzon Pharmaceuticals Pvt. Ltd.” (but keep wording original, not copied).
+
+------------------------------------------------
+2. MEDICINES PAGE ("/medicines")
+------------------------------------------------
+Layout similar to screenshot:
+
+- Hero heading: “All Medicines”
+- Subtext: “Browse our wide range of prescription and over‑the‑counter medicines.”
+- Search bar: “Search medicines…”
+- Category grid (same categories as Home).
+- Product list:
+  - Use medicines from backend API.
+  - Cards show name, category, pack info, price, discount badge and “Add to Cart” button.
+- Connect search and category filters to the backend query (?search=&category=).
+
+------------------------------------------------
+3. LAB TESTS PAGE ("/lab-tests")
+------------------------------------------------
+- Heading: “Lab Tests & Health Checkups”
+- Subtext: “Book diagnostic tests with home sample collection and get digital reports.”
+- Search input: “Search tests, health packages…”
+- A highlighted card: “Home Sample Collection” with icon and text.
+- “Test Categories” grid:
+  - Complete Blood Count
+  - Diabetes Screening
+  - Thyroid Profile
+  - Lipid Profile
+  - Liver Function Test
+  - Vitamin D Test
+  - Full Body Checkup
+  - Fever Panel
+- Each card has image placeholder, title and short description.
+- Below, list a few sample tests (from backend or static array) with price and “Book Test” button.
+
+------------------------------------------------
+4. LOGIN PAGE ("/login")
+------------------------------------------------
+- Two‑column layout (stacked on mobile).
+- Left: simple banner “Your Health, Delivered – Access all your healthcare needs in one place”.
+- Right: card with:
+  - Heading: “Welcome back”
+  - Text: “Sign in using your phone number”
+  - Input: Phone Number
+  - Button: “Send OTP”
+- On click “Send OTP”, call backend `/api/auth/send-otp` (fake OTP 123456), then show OTP input and “Verify OTP” → call `/api/auth/verify-otp`.
+- On success, store fake JWT token in localStorage and redirect to /profile.
+
+------------------------------------------------
+5. PROFILE PAGE ("/profile")
+------------------------------------------------
+- Show “Hello, [phone]” and basic info loaded from `/api/auth/me` (or local stored user).
+- Section showing:
+  - Saved address placeholder
+  - Recent orders placeholder
+- If user not logged in (no token), redirect to /login.
+
+------------------------------------------------
+6. CART PAGE ("/cart")
+------------------------------------------------
+- Simple cart summary using React state only (no DB needed):
+  - List of medicines added, quantity, price, total.
+  - Button: “Proceed to Checkout” (just show a success message for now).
+
+========================
+BACKEND: EXPRESS + MONGODB
+========================
+Structure example:
+- /server
+  - index.ts (or index.js)
+  - routes/
+  - models/
+  - controllers/
+
+Use Mongoose models:
+
+User:
+- phone (string, required, unique)
+- createdAt (Date, default now)
+
+Medicine:
+- name (string, required)
+- category (string, required)
+- description (string)
+- price (number, required)
+- discountPercent (number, default 0)
+- imageUrl (string, optional)
+
+LabTest:
+- name (string, required)
+- category (string)
+- description (string)
+- price (number)
+
+ContactRequest:
+- name, phone, email, message, createdAt
+
+API endpoints (prefix /api):
+
+AUTH:
+- POST /api/auth/send-otp
+  - body: { phone }
+  - simulate OTP = "123456", do NOT integrate SMS, just log it and respond { success: true }.
+- POST /api/auth/verify-otp
+  - body: { phone, otp }
+  - If otp === "123456": find-or-create User, return { token: "fake-jwt-token", user: { phone } }.
+
+MEDICINES:
+- GET /api/medicines
+  - query: search, category
+  - filter medicines accordingly.
+- Optional: GET /api/medicines/popular to return subset.
+
+LAB TESTS:
+- GET /api/lab-tests
+  - query: search, category
+
+CONTACT:
+- POST /api/contact
+  - body: { name, phone, email, message }
+  - Save ContactRequest and return { success: true }.
+
+HEALTH CHECK:
+- GET /api/health → { status: "ok" }
+
+Database:
+- In server startup, if medicines or labTests collections are empty, seed with some demo data (a few medicines and tests with prices, matching the categories).
+
+Server setup:
+- Use dotenv for env variables (MONGODB_URI, PORT).
+- Connect to MongoDB via `mongoose.connect(process.env.MONGODB_URI)`.
+- Enable CORS for the React frontend origin.
+- In development, run backend on port 5000 and frontend on Vite’s default port (e.g., 5173). Configure frontend API base URL accordingly (e.g., via environment variable).
+
+========================
+SCRIPTS & PROJECT SETUP
+========================
+Project root:
+- package.json with scripts:
+  - "install": install dependencies in both client and server if needed
+  - "dev": run client and server concurrently (e.g., using `concurrently` package)
+  - "server": run backend dev
+  - "client": run frontend dev
+- Clear README.md with run instructions for Replit:
+  - npm install
+  - npm run dev
+- Ensure TypeScript configs (tsconfig) are correct for both client and server.
+
+The final output must be a working Replit project that:
+- Uses this design and navigation structure.
+- Has a functioning Node.js + Express + MongoDB backend with the routes described.
+- Has a React frontend that calls the backend for medicines, lab tests, auth (fake OTP), and contact form.
+- Looks visually similar in layout to the provided KwikMedi screenshots while using original text and assets.
