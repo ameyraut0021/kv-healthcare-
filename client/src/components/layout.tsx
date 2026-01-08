@@ -19,7 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/medicines", label: "Medicines" },
-    { href: "/lab-tests", label: "Lab Tests" },
+    { href: "/lab-tests", label: "About Us" }, 
   ];
 
   return (
@@ -40,10 +40,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center gap-2 cursor-pointer">
               <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold font-display text-xl">
-                KM
+                KR
               </div>
               <span className="hidden md:inline-block font-display font-bold text-xl tracking-tight text-primary">
-                KwikMedi
+                Healthcare
               </span>
             </Link>
             
@@ -156,14 +156,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold font-display">
-                  KM
+                  KR
                 </div>
                 <span className="font-display font-bold text-xl tracking-tight text-primary">
-                  KwikMedi
+                  Healthcare
                 </span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                KwikMedi is your trusted healthcare partner, providing medicines, doctor consultations, and lab tests all in one place for your convenience.
+                KR Healthcare is your trusted healthcare partner, providing medicines, doctor consultations, and lab tests all in one place for your convenience.
               </p>
             </div>
 
@@ -183,7 +183,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h3 className="font-semibold mb-4 text-foreground">Services</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li><Link href="/medicines" className="hover:text-primary transition-colors cursor-pointer">Order Medicines</Link></li>
-                <li><Link href="/lab-tests" className="hover:text-primary transition-colors cursor-pointer">Book Lab Tests</Link></li>
+                <li><Link href="/lab-tests" className="hover:text-primary transition-colors cursor-pointer">About Us</Link></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Ayurveda</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Care Plan</a></li>
               </ul>
@@ -195,7 +195,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="font-medium">Email:</span>
-                  <a href="mailto:support@kwikmedi.com" className="hover:text-primary transition-colors">support@kwikmedi.com</a>
+                  <a href="mailto:support@kwikmedi.com" className="hover:text-primary transition-colors">support@kwedi.com</a>
                 </li>
                 <li className="flex gap-4 mt-4">
                   <a href="#" className="h-8 w-8 rounded-full bg-white border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"><Facebook className="h-4 w-4" /></a>
@@ -208,7 +208,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="border-t pt-8 text-center text-xs text-muted-foreground">
-            <p>© 2025 KwikMedi. All rights reserved by Vishzon Pharmaceuticals Pvt. Ltd.</p>
+            <p>© 2025 KRHealthcare. All rights reserved by Vishzon Pharmaceuticals Pvt. Ltd.</p>
           </div>
         </div>
       </footer>

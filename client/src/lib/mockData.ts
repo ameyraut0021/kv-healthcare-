@@ -14,29 +14,94 @@ export const assets = {
   lab: labTestImage,
 };
 
-export const categories = [
-  { id: 1, name: "Pain Relief", image: painReliefImage, slug: "pain-relief" },
-  { id: 2, name: "Antibiotics", image: antibioticsImage, slug: "antibiotics" },
-  { id: 3, name: "Allergy", image: allergyImage, slug: "allergy" },
-  { id: 4, name: "Vitamins", image: vitaminsImage, slug: "vitamins" },
-  { id: 5, name: "First Aid", image: firstAidImage, slug: "first-aid" },
-  { id: 6, name: "Orthopedics", image: orthopedicsImage, slug: "orthopedics" },
-  { id: 7, name: "Baby & Child Care", image: babyCareImage, slug: "baby-child" },
-  { id: 8, name: "Diabetes", image: diabetesImage, slug: "diabetes" },
+import {
+  Pill,
+  Droplets,
+  Bandage,
+  Stethoscope,
+} from "lucide-react";
+
+/* =======================
+   CATEGORIES (SAME NAMES)
+   ======================= */
+   export const categories = [
+  {
+    id: "PHARMACEUTICAL MEDICINE",
+    name: "Pharmaceutical Medicine",
+    image: "/categories/pharmaceutical-medicines.png",
+    slug: "pharma"
+  },
+  {
+    id: "IV FLUIDS & SOLUTIONS",
+    name: "IV Fluids & Solutions",
+    image: "/categories/iv-fluids-solutions.png",
+    slug: "iv-fluids"
+  },
+  {
+    id: "MEDICAL CONSUMABLES & DISPOSABLES",
+    name: "Medical Consumables",
+     image: "/categories/medical-consumables-disposables.png",
+    slug: "consumables"
+  },
+  {
+    id: "SURGICAL & DIAGNOSTIC PRODUCTS",
+    name: "Surgical & Diagnostic",
+    image: "/categories/surgical-diagnostic-products.png",
+    slug: "surgical"
+  }
 ];
 
+/* =======================
+   MEDICINES (SAMPLE DATA)
+   ======================= */
 export const medicines = [
-  { id: 101, name: "Aspirin 325mg", category: "Pain Relief", price: 25.00, discount: 10, description: "14 tablets", image: painReliefImage },
-  { id: 102, name: "Amoxicillin 500mg", category: "Antibiotics", price: 45.00, discount: 5, description: "10 capsules", image: antibioticsImage },
-  { id: 103, name: "Cetirizine 10mg", category: "Allergy", price: 18.00, discount: 0, description: "15 tablets", image: allergyImage },
-  { id: 104, name: "Multivitamin Complex", category: "Vitamins", price: 120.00, discount: 15, description: "60 tablets", image: vitaminsImage },
-  { id: 105, name: "Bandages Pack", category: "First Aid", price: 30.00, discount: 0, description: "Pack of 20", image: firstAidImage },
-  { id: 106, name: "Knee Support", category: "Orthopedics", price: 350.00, discount: 20, description: "Size M", image: orthopedicsImage },
-  { id: 107, name: "Baby Lotion", category: "Baby & Child Care", price: 180.00, discount: 10, description: "200ml", image: babyCareImage },
-  { id: 108, name: "Glucometer Strips", category: "Diabetes", price: 450.00, discount: 5, description: "50 strips", image: diabetesImage },
-  { id: 109, name: "Ibuprofen 400mg", category: "Pain Relief", price: 35.00, discount: 10, description: "10 tablets", image: painReliefImage },
-  { id: 110, name: "Vitamin C 500mg", category: "Vitamins", price: 80.00, discount: 10, description: "30 tablets", image: vitaminsImage },
+  {
+    id: "pharma-1",
+    name: "Paracetamol 500mg Tablets",
+    category: "PHARMACEUTICAL MEDICINE",
+    description: "Analgesic and antipyretic for pain relief and fever",
+    price: 45,
+    discount: 10,
+    image: "https://images.unsplash.com/photo-1585399822294-7d8b21a39309?w=300",
+  },
+  {
+    id: "pharma-2",
+    name: "Azithromycin 500mg Tablets",
+    category: "PHARMACEUTICAL MEDICINE",
+    description: "Macrolide antibiotic for infections",
+    price: 135,
+    discount: 15,
+    image: "https://images.unsplash.com/photo-1585399822294-7d8b21a39309?w=300",
+  },
+  {
+    id: "iv-1",
+    name: "Normal Saline 500ml",
+    category: "IV FLUIDS & SOLUTIONS",
+    description: "0.9% sodium chloride IV fluid",
+    price: 65,
+    discount: 5,
+    image: "https://images.unsplash.com/photo-1612872087726-e7f06072b2d9?w=300",
+  },
+  {
+    id: "consumables-1",
+    name: "Disposable Syringes (Pack of 10)",
+    category: "MEDICAL CONSUMABLES & DISPOSABLES",
+    description: "Sterile disposable syringes",
+    price: 85,
+    discount: 15,
+    image: "https://images.unsplash.com/photo-1586345086576-72e5fb0c5bbd?w=300",
+  },
+  {
+    id: "surgical-1",
+    name: "Digital BP Monitor",
+    category: "SURGICAL & DIAGNOSTIC PRODUCTS",
+    description: "Automatic blood pressure monitor",
+    price: 2499,
+    discount: 20,
+    image: "https://images.unsplash.com/photo-1582683892064-b18d9d6f1a71?w=300",
+  },
 ];
+
 
 export const labTests = [
   { id: 201, name: "Complete Blood Count", category: "Haematology", price: 400, description: "Includes Haemoglobin, RBC, WBC, Platelets", image: labTestImage },

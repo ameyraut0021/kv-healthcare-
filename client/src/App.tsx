@@ -8,7 +8,7 @@ import NotFound from "@/pages/not-found";
 import Layout from "@/components/layout";
 import Home from "@/pages/home";
 import Medicines from "@/pages/medicines";
-import LabTests from "@/pages/lab-tests";
+import AboutUs from "@/pages/about-us";
 import Login from "@/pages/login";
 import Cart from "@/pages/cart";
 import Checkout from "@/pages/checkout";
@@ -23,7 +23,7 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/medicines" component={Medicines} />
-        <Route path="/lab-tests" component={LabTests} />
+        <Route path="/lab-tests" component={AboutUs} /> 
         <Route path="/login" component={Login} />
         <Route path="/cart" component={Cart} />
         <Route path="/checkout" component={Checkout} />
