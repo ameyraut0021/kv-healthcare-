@@ -113,7 +113,25 @@ export const labTests = [
 ];
 
 export const testimonials = [
-  { id: 1, name: "Neha Singh", city: "Gurgaon", rating: 5, text: "I used to wait hours for my medicines from other apps. With KwikMedi, it's hassle-free. I get updates in real time and the delivery is always on time." },
-  { id: 2, name: "Arjun Kumar", city: "Gurgaon", rating: 5, text: "What I love most is the accuracy. The pharmacist verified my prescription before dispatch, which gave me confidence that I was getting the right medicines." },
-  { id: 3, name: "Priya Rai", city: "Delhi NCR", rating: 4, text: "Booked a full body checkup through KwikMedi. The phlebo arrived at home on time, was professional, and I got my reports within 12 hours. Excellent experience!" },
+  {
+    id: 1,
+    name: "Neha Singh",
+    city: "Gurgaon",
+    rating: 5,
+    text: "I used to wait hours for my medicines..."
+  },
+  {
+    id: 2,
+    name: "Arjun Kumar",
+    city: "Gurgaon",
+    rating: 5,
+    text: "What I love most is the accuracy..."
+  },
+  {
+    id: 3,
+    name: "Priya Rai",
+    city: "Delhi NCR",
+    rating: 4,
+    text: "Booked a full body checkup..."
+  }
 ];
