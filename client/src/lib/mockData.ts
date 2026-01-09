@@ -115,23 +115,24 @@ export const labTests = [
 export const testimonials = [
   {
     id: 1,
-    name: "Neha Singh",
-    city: "Gurgaon",
+    name: "Rahul Patil",
+    city: "Pune",
     rating: 5,
-    text: "I used to wait hours for my medicines..."
+    text:  "KV Healthcare made ordering medicines extremely easy. The delivery was fast, packaging was secure, and I received regular updates. Truly reliable healthcare service."
   },
   {
     id: 2,
     name: "Arjun Kumar",
-    city: "Gurgaon",
+    city: "Mumbai",
     rating: 5,
-    text: "What I love most is the accuracy..."
+    text:
+      "I was impressed by the accuracy and professionalism of KV Healthcare. My prescription was verified properly and the medicines arrived on time. Highly recommended!"
   },
   {
     id: 3,
     name: "Priya Rai",
-    city: "Delhi NCR",
+    city: "Delhi",
     rating: 4,
-    text: "Booked a full body checkup..."
-  }
+    text: "Booked a health checkup through KV Healthcare and the experience was smooth. The staff was polite and reports were delivered within a day. Very convenient service."
+  },
 ];
