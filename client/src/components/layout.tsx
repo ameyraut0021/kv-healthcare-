@@ -195,7 +195,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="font-medium">Email:</span>
-                  <a href="mailto:support@kwikmedi.com" className="hover:text-primary transition-colors">support@kwedi.com</a>
+                  <a href="mailto:support@krhealthcare.com" className="hover:text-primary transition-colors">support@krhealthcare.com</a>
                 </li>
                 <li className="flex gap-4 mt-4">
                   <a href="#" className="h-8 w-8 rounded-full bg-white border flex items-center justify-center hover:border-primary hover:text-primary transition-colors"><Facebook className="h-4 w-4" /></a>
