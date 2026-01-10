@@ -163,7 +163,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                KR Healthcare is your trusted healthcare partner, providing medicines, doctor consultations, and lab tests all in one place for your convenience.
+                KR Healthcare is your trusted healthcare partner, providing medicines, Medical consumables and disposables, Surgical products and IV fluids and solutions all in one place for your convenience.
               </p>
             </div>
 

@@ -27,7 +27,7 @@ export default function Home() {
               Your Complete Healthcare Solution
             </h1>
             <p className="text-xl text-blue-100 max-w-lg">
-              Medicines and Lab Tests – all in one place.
+              Medicines and Medical Instruments – all in one place.
             </p>
             
             <div className="flex flex-wrap gap-6 text-sm font-medium text-blue-100">
